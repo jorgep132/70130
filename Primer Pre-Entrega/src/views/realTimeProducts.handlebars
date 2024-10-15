@@ -1,0 +1,34 @@
+<h2 id="header">Agregar producto</h2>
+<form id="form">
+<div>Titulo:      <input type='text' id='title'></div>
+<div>Descripcion: <input type='text' id='description'></div>
+<div>Codigo:      <input type='text' id='code'></div>
+<div>Precio:      <input type='text' id='price'></div>
+<div>Estado:      <input type="checkbox" id="status"></div>
+<div>Stock:       <input type='text' id='stock'></div>
+<div>Categoria:   <input type='text' id='category'></div>
+<input type="file" id='thumbnails'>
+<button id="agregar" type="button">Agregar Producto</button>
+</form>
+
+
+<div>
+    <label for="cartSelect">Selecciona un carrito:</label>
+    <button id="borrarCarrito" type="button">Eliminar Carrito</button>
+    <button id="vaciarCarrito" type="button">Vaciar Carrito</button>
+    <button id="agregarCarrito" type="button">Agregar Carrito</button>
+    
+    <select id="cartSelect">
+    </select>
+</div>
+<h2>Lista de productos: </h2>
+<div id="product-list"></div>
+
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+<link rel="stylesheet" type="text/css" href="/css/styles.css">
+<script src="socket.io/socket.io.js"></script>
+<script type="module" src="/js/realTimeProducts.js"></script>
+<script type="module" src="/js/realTimeCarts.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

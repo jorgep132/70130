@@ -1,0 +1,11 @@
+GET http://localhost:8080/current
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MGQ0MDA1Njc3YjVhMTIxMTdlMmM1ZiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzI4OTIxNjI3LCJleHAiOjE3MjkwMDgwMjd9.8sPshpJ6zwpmerk1JUSreMMn81f1FHCjijGcontZ_Xk
+
+###
+POST http://localhost:8080/login
+Content-Type: application/json
+
+{
+    "email": "jorge@coder.com",
+    "password": "prueba"
+}

@@ -1,0 +1,68 @@
+{{#if product}}
+<div>
+    <h2>Titulo: {{product.title}}</h2>
+    <h2>Descripcion: {{product.description}}</h2>
+    <h2>Codigo: {{product.code}}</h2>
+    <h2>Precio: {{product.price}}</h2>
+    {{#if product.status}}
+    <h2>Estado: Verdadero</h2>
+    {{else}}
+    <h2>Estado: Falso</h2>
+    {{/if}}
+    <h2>Stock: {{product.stock}}</h2>
+    <h2>Category: {{product.category}}</h2>
+    <img src="{{product.thumbnails}}" class="foto_producto">
+</div>
+{{/if}}
+
+{{#if products}}
+<h1>Productos</h1>
+<form method="get" action="/products">
+    <label for="sortField">Ordenar por:</label>
+    <select name="sortField" id="sortField">
+        <option value="title" {{#if (eq sortField "title")}}selected{{/if}}>Título</option>
+        <option value="price" {{#if (eq sortField "price")}}selected{{/if}}>Precio</option>
+        <option value="status" {{#if (eq sortField "status")}}selected{{/if}}>Estado</option>
+        <option value="stock" {{#if (eq sortField "stock")}}selected{{/if}}>Stock</option>
+        <option value="category" {{#if (eq sortField "category")}}selected{{/if}}>Categoría</option>
+    </select>
+
+    <label for="sortOrder">Orden:</label>
+    <select name="sortOrder" id="sortOrder">
+        <option value="1" {{#if (eq sortOrder 1)}}selected{{/if}}>Ascendente</option>
+        <option value="-1" {{#if (eq sortOrder -1)}}selected{{/if}}>Descendente</option>
+    </select>
+
+    <button type="submit">Ordenar</button>
+</form>
+{{#each products}}
+<div>
+    <h2>Titulo: {{this.title}}</h2>
+    <h2>Descripcion: {{this.description}}</h2>
+    <h2>Codigo: {{this.code}}</h2>
+    <h2>Precio: {{this.price}}</h2>
+    {{#if this.status}}
+    <h2>Estado: Verdadero</h2>
+    {{else}}
+    <h2>Estado: Falso</h2>
+    {{/if}}
+    <h2>Stock: {{this.stock}}</h2>
+    <h2>Category: {{this.category}}</h2>
+    <img src="{{this.thumbnails}}" class="foto_producto">
+</div>
+{{/each}}
+
+<span> Página {{page}} de {{totalPages}} </span>
+<div class="pagination">
+    {{#if hasPrevPage}}
+        <a href="/products?pageNum={{prevPage}}&limit={{limit}}" class="prev">Anterior</a>
+    {{/if}}
+    {{#if hasNextPage}}
+        <a href="/products?pageNum={{nextPage}}&limit={{limit}}" class="next">Siguiente</a>
+    {{/if}}
+</div>
+{{/if}}
+
+<script src="socket.io/socket.io.js"></script>
+<link rel="stylesheet" href="/css/styles.css">
+
