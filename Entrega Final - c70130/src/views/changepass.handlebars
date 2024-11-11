@@ -1,0 +1,12 @@
+<main>
+<div class="d-flex justify-content-center align-items-center">
+    <h1>Recuperar password</h1>
+    <form action="/users/change-pass" method="POST" class="form-group">
+        <input type="email" name="email" class="form-control" placeholder="Ingrese su correo electronico." required  minlength="8" maxlength="35">
+        {{!-- <input type="email" name="email" class="form-control" required placeholder="Ingrese el codigo enviado a su email."> --}}
+        <input type="password" name="newPassword" class="form-control" placeholder="Ingrese la nueva contraseña." required minlength="8" maxlength="20"> 
+        <button type="submit">Enviar</button>
+    </form>
+</div>
+<link rel="stylesheet" type="text/css" href="/css/changepass.css">
+</main>

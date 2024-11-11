@@ -1,0 +1,31 @@
+// Datos de la unica cuenta de Administrador
+
+// Request para iniciar sesion con los datos en el body
+POST http://localhost:8080/users/login
+Content-Type: application/json
+
+{
+    "email": "admin@coder.com",
+    "password": "superadmin"
+}
+
+// Request para verificar que usuario esta logueado, sin mostrar la informacion sensible.
+###
+GET http://localhost:8080/users/current
+
+// Request para desloguear
+###
+POST http://localhost:8080/users/logout
+
+// Request para registrar un usuario 
+###
+POST http://localhost:8080/users/register
+Content-Type: application/json
+
+{   
+    "first_name": "Prueba",
+    "last_name": "Coder",
+    "email": "prueba@coder.com",
+    "password": "prueba"
+}
+
