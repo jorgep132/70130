@@ -18,7 +18,6 @@ export function cancellation(cancel, products){
                 // Para cada producto, envía su ID y la cantidad para cancelar la compra
                 products.forEach(product => {
                     const { productId, quantity } = product;
-                    console.log('Datos que recibo: ', { cartId, productId, quantity })
 
                     // POST para cancelar la venta
                      fetch(`http://localhost:8080/tickets/purchase/cancel`, {

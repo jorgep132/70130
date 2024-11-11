@@ -26,7 +26,6 @@ usersRouter.post('/change-pass', updatePassword)
 
 // Ver usuario logueado, ocultando informacion sensible
 usersRouter.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
-    console.log(req.user)
     if (!req.user) {
         return res.status(401).send({ status: 'error', error: 'No estás autenticado.' });
     }

@@ -17,7 +17,7 @@ const getCarts = async (req, res) => {
                 carts: fetchedCarts
             })
         } catch (error) {
-            console.log(error)
+        res.status(500).send(err.message)
     }
 }
 
@@ -27,8 +27,8 @@ const getCartsApi = async (req, res) => {
         const fetchedCarts = await cartService.get()
         return res.send({status: 'success', payload: fetchedCarts})
     } catch (error) {
-        console.log(error)
-}
+        res.status(500).send(err.message)
+    }
 }
 
 // Funcion para obtener un carrito y renderizarlo en el handlebars 'cart'.

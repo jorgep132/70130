@@ -51,8 +51,8 @@ const getTickets = async (req, res) => {
     try {
         const fetchedCarts = await ticketService.get()
         res.send({message: 'success', payload: fetchedCarts})
-    } catch (error) {
-        console.log(error)
+    } catch (err) {
+        res.status(500).send(err.message)
     }
 }
 

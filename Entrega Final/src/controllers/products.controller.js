@@ -6,8 +6,8 @@ const addProduct = async (req, res) => {
         const {body} = req
         const response = await productService.create(body)
         res.send({status: 'success', payload: response})
-    } catch (error) {
-        console.log(error)
+    } catch (err) {
+        res.status(500).send(err.message)
     }
 }
 
@@ -50,7 +50,7 @@ const getProducts = async (req, res) =>{
         })
 
     }catch(err){
-        console.log(err)
+        res.status(500).send(err.message)
     } 
 }
 
