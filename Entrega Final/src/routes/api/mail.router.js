@@ -7,21 +7,18 @@ const { TicketDto } = require('../../dto/ticket.dto');
 const routerMail = Router()
 
 routerMail.post('/send/:ticketId', passport.authenticate('jwt', { session: false }), async (req, res) => {
-    const { email, first_name, last_name } = req.user;  // Obtén la info del usuario autenticado
+    const { email, first_name, last_name } = req.user; 
     const { ticketId } = req.params;
-    console.log('Id del ticket: ', ticketId);
 
     try {
         // Obtener el ticket por ID
-        const ticket = await ticketService.getBy(ticketId); // Ejemplo de cómo obtener el ticket
+        const ticket = await ticketService.getBy(ticketId); 
         if (!ticket) {
             return res.status(404).json({ error: 'Ticket no encontrado' });
         }
-        console.log('Ticket a enviar: ', ticket);
 
         // Obtener los detalles del ticket
         const ticketDto = new TicketDto(ticket);
-        console.log('Ticket a enviar: ', ticketDto);
 
         // Crear un string HTML con los productos del ticket
         let productDetailsHTML = '';
@@ -36,7 +33,7 @@ routerMail.post('/send/:ticketId', passport.authenticate('jwt', { session: false
             `;
         });
 
-        // Enviar el correo con los detalles del ticket y los productos
+        // Enviamos el mail dinamico
         await sendEmail({
             userClient: email,
             subject: 'Tu ticket de compra',
@@ -59,10 +56,8 @@ routerMail.post('/send/:ticketId', passport.authenticate('jwt', { session: false
             `
         });
 
-        // Responder con éxito
         res.send('Correo enviado correctamente');
     } catch (err) {
-        console.error('Error al enviar el correo:', err);
         res.status(500).json({ error: 'Error al enviar el correo' });
     }
 });

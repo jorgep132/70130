@@ -33,7 +33,6 @@ fetch('http://localhost:8080/users/current', {
             if (seeCartButton) {
                 seeCartButton.setAttribute('data-id', cartId); 
             }
-            console.log('cartId obtenido:', cartId);  
         } else {
             return
         }
