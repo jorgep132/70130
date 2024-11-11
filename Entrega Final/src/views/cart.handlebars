@@ -1,0 +1,32 @@
+{{#if cart}}
+<h1>Carrito de Compras</h1>
+{{#each cart.products}}
+<div class="producto" data-id="{{this.product._id}}" data-price="{{this.product.price}}">
+    <h2>Producto: {{this.product.title}}</h2>
+    <img src="{{product.thumbnails}}" class="foto_producto">
+    <h2>Descripcion: {{this.product.description}}</h2>
+    <h2>Precio: {{this.product.price}}</h2>
+    <div class ="carrito" data-quantity="{{this.quantity}}">
+        <h2>Cantidad: {{this.quantity}}</h2>
+    </div>
+    <h2 class="subTotal"></h2>
+</div>
+<br>
+{{/each}}
+    <div>
+        <h2 class="total"></h2>
+        <button type='button' class='purchase' data-id='{{cart._id}}'>Finalizar compra</button>
+        <button type='button' class='purchase' onclick="window.location.href='/products'">Seguir comprando</button>
+        <button type='button' class='cancel' data-id='{{cart._id}}'>Cancelar compra</button>
+    </div>
+{{/if}}
+
+<link rel="stylesheet" href="/css/cart.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script type='module' src="/js/cartState.js"></script> 
+<script type='module' src="/js/purchase.js"></script> 
+<script type='module' src="/js/cancel.js"></script> 
+<script src="/js/products.js"></script>
+<script type='module' src="/js/cart.js"></script>
+
+ 

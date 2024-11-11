@@ -1,0 +1,120 @@
+/* General Styles */
+html, body {
+    height: 100%; /* Asegura que el body y html ocupen toda la altura de la pantalla */
+    margin: 0;    /* Elimina márgenes predeterminados */
+    padding: 0;   /* Elimina padding predeterminado */
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    display: flex;           /* Usamos Flexbox para asegurar el centrado */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center;     /* Centra el contenido verticalmente */
+    min-height: 100vh;       /* Asegura que ocupe al menos toda la altura de la ventana */
+}
+
+/* Estilos para el contenedor principal */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;              /* Asegura que el main ocupe todo el ancho */
+    height: 100vh;            /* Asegura que el main ocupe toda la altura */
+}
+
+/* Estilo del contenedor de cambiar contraseña */
+.d-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;         /* Limita el tamaño máximo del contenedor */
+    box-sizing: border-box;
+}
+
+/* Título de la página de cambiar contraseña */
+h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Estilo para el formulario */
+form {
+    width: 100%;
+}
+
+/* Estilo para los inputs del formulario */
+form input[type="email"],
+form input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+form input[type="email"]:focus,
+form input[type="password"]:focus {
+    border-color: #4CAF50; /* Color cuando está en foco */
+    outline: none;
+}
+
+/* Estilo para el botón de enviar */
+form button {
+    width: 100%;
+    padding: 14px;
+    font-size: 18px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+/* Estilo de los enlaces */
+form a {
+    font-size: 14px;
+    color: #4CAF50;
+    text-decoration: none;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+form a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo del enlace de 'Login' */
+form a[href="/users/login"] {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+/* Estilo de responsive para cambiar contraseña */
+@media (max-width: 500px) {
+    .d-flex {
+        padding: 30px;
+        max-width: 90%;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+}

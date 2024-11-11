@@ -1,0 +1,168 @@
+/* Reseteo básico para asegurar que los estilos sean consistentes */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo base para el cuerpo */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+    padding: 20px;
+    margin: 0;
+}
+
+/* Encabezado principal */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #0056b3; /* Azul */
+}
+
+/* Estilo para los contenedores principales */
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Contenedor de productos dentro del carrito */
+.producto {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 15px 0;
+    padding: 20px;
+    transition: transform 0.3s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.producto:hover {
+    transform: translateY(-5px);
+}
+
+/* Estilo para la imagen del producto dentro del carrito */
+.foto_producto {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin: 10px 0;
+    border-radius: 8px;
+}
+
+/* Estilo para el nombre, descripción, precio y cantidad */
+h2 {
+    font-size: 1.2rem;
+    color: #444;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Sección de cantidad dentro del carrito */
+.carrito {
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    max-width: 200px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+/* Estilo para el subtotal de cada producto */
+.subTotal {
+    font-weight: bold;
+    color: #007bff;
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+/* Estilo para el total del carrito */
+.total {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Botones de finalizar compra y cancelar */
+button {
+    padding: 12px 20px;
+    font-size: 1rem;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.purchase {
+    background-color: #28a745; /* Verde para finalizar compra */
+    margin-right: 10px;
+}
+
+.purchase:hover {
+    background-color: #218838;
+}
+
+.cancel {
+    background-color: #dc3545; /* Rojo para cancelar compra */
+}
+
+.cancel:hover {
+    background-color: #c82333;
+}
+
+/* Asegurando que los botones no se desborden en pantallas pequeñas */
+button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+/* Diseño del carrito en columnas (responsive) */
+@media (min-width: 768px) {
+    .cart-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .producto {
+        width: 100%;
+    }
+
+    .total, .purchase, .cancel {
+        font-size: 1.1rem;
+    }
+}
+
+/* Estilo para los productos dentro del carrito si están vacíos */
+.empty-cart-message {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #888;
+    margin-top: 30px;
+}
+
+/* Agregar un margen extra a los elementos de la compra */
+.purchase-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.purchase-container button {
+    margin: 10px;
+}
