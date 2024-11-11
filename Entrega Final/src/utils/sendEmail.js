@@ -14,7 +14,7 @@ exports.sendEmail = async ({userClient='', subject='', html=''}) => {
     const destinario =  userClient
     console.log('Persona que recibe el mail:', destinario)
     await transport.sendMail({
-        from: `Coder test <${configObject.gmail_user}`,
+        from: `Trabajo Final c70130 <${configObject.gmail_user}`,
         to: destinario,   
         subject: subject,
         html: html,

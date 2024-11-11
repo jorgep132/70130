@@ -5,7 +5,6 @@ const { PRIVATE_KEY } = require('../utils/jwt')
 const authTokenMiddleware = (req, res, next) => {
     const authHeader = req.headers['authorization']
     if(!authHeader) return res.status(401).send({status: 'error', error: 'not authenticated'})
-    // El bearer no nos importa
     
     const token = authHeader.split(' ')[1]
     jwt.verify(token, PRIVATE_KEY, (error, userToken) =>{

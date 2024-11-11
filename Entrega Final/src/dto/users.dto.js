@@ -10,6 +10,7 @@ class UserDto {
 
     toResponse(){
         return {
+            // Mostramos informacion especifica al usuario
             'Nombre Completo': `${this.first_name} ${this.last_name}`,
             'Correo electrónico': this.email,
             'Carrito': this.cart

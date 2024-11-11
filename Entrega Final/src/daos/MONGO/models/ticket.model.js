@@ -3,7 +3,7 @@ const { Schema, model, SchemaType } = require('mongoose')
 // Nombramos nuestra coleccion
 const collectionName = 'ticket'
 
-// Schema con los datos que contendran nuestros carritos
+// Schema con los datos que contendra nuestro ticket
 const ticketSchema = new Schema({
     code: {
         type: String,

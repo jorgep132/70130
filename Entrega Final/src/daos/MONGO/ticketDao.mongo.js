@@ -16,9 +16,10 @@ class TicketDaoMongo
     return await newTicket.save()
     }
 
-   // Get ticket por id
+   // Ver ticket por id
    getBy = async ticketId => await this.model.findById(ticketId)
    
+   // Ver tickets
    get = async () => await this.model.find()
    
 }

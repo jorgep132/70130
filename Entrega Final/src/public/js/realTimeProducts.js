@@ -11,6 +11,7 @@ const productStock = document.querySelector('#stock');
 const productCategory = document.querySelector('#category');
 const productThumbnails = document.querySelector('#thumbnails');
 
+// Limpiamos el form
 function clearForm() {
     productTitle.value = '';
     productDescription.value = '';
@@ -19,8 +20,8 @@ function clearForm() {
     productStatus.checked = false;
     productStock.value = '';
     productCategory.value = '';
-    productThumbnails.value = ''; // Limpiar el campo de imagen
-    productThumbnails.disabled = false; // Volver a habilitar el campo de imagen si fue deshabilitado
+    productThumbnails.value = '';
+    productThumbnails.disabled = false; 
 }
 
 
@@ -138,7 +139,6 @@ agregarProducto.addEventListener('click', async evt => {
 
     const file = productThumbnails.files[0];
     let thumbnailPath = '';
-    // Verificamos, mediante mongoose, que todos los datos sean validos (basandonos en nuestro model)
     try {
         if (file) {
             thumbnailPath = await uploadPhoto(file);
@@ -179,6 +179,7 @@ const uploadPhoto = async (file) => {
     return data.filePath;
 };
 
+// Eeventos .on
 socket.on('product_updated_ok', () => {
     Toastify({
         text: 'Producto actualizado con éxito',

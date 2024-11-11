@@ -2,57 +2,59 @@ import { cancellation } from "./cancel.js";
 import { emptyCart } from "./emptyCart.js";
 import { purchase } from "./purchase.js";
 
+// Funcion para corroborar el usuario logueado
 function getCookie(name) {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parts.pop().split(';').shift();
-    return null;  // Si no existe la cookie, retorna null
+    return null; 
 }
 
 let purchaserId = '';
 let total = 0;
 let products = [];
 
+// GET para tomar el usuario con la funcion getCookie
 fetch('http://localhost:8080/users/current', {
     method: 'GET',
     headers: {
-        'Authorization': `Bearer ${getCookie('token')}`  // Usamos la cookie para obtener el token
-    }
-})
-    .then(response => response.json())  // Convertimos la respuesta a JSON
+        // Usamos la cookie para obtener el token
+        'Authorization': `Bearer ${getCookie('token')}`  
+        }
+    })
+    .then(response => response.json())
     .then(data => {
-        console.log('Respuesta del servidor:', data);
-        console.log('Mail del usuario: ', data.datauser['Correo electrónico'])
-        // Aquí obtenemos el purchaserId desde la respuesta
         if (data.datauser && data.datauser['Correo electrónico']) {
             const cartId = data.datauser['Carrito'];
-            console.log('Cart id: ', cartId);
-            purchaserId = data.datauser['Correo electrónico'];  // Asignamos el purchaserId aquí
-            console.log('Purchaser obtenido:', purchaserId);  // Verifica si el purchaserId se obtiene correctamente
-        } else {
-            console.error('No se encontró purchaserId en los datos del usuario.');
+            purchaserId = data.datauser['Correo electrónico'];  
+        }else{
+            return
         }
 
-        // Llamamos a la función purchase solo después de que purchaserId se haya asignado
+        // Tomamos el elemento total ya que este tomara como valor la suma total de todos los subtotales
         const totalElement = document.querySelector('.total');
-        // Seleccionamos todos los productos generados por Handlebars
+        
         document.querySelectorAll('.producto').forEach(producto => {
             const title = producto.querySelector('h2').textContent.replace('Producto: ', '')
-            const price = parseFloat(producto.getAttribute('data-price')); // Asegúrate de convertirlo a número
-            const quantity = parseInt(producto.querySelector('.carrito').getAttribute('data-quantity')); // Obtenemos la cantidad
-            const subTotal = price * quantity; // Calculamos el total del producto
+
+            // Convertimos en valores numericos cuando definimos las const 
+            const price = parseFloat(producto.getAttribute('data-price')); 
+            const quantity = parseInt(producto.querySelector('.carrito').getAttribute('data-quantity'));
+
+            // Subtotal que usaremos para calcular el total de todo lo que debera gastar el cliente
+            // Al realizar la compra
+            const subTotal = price * quantity // Precio del producto * cantidad 
             
             const productId = producto.getAttribute('data-id')
 
-            const subTotalElement = producto.querySelector('.subTotal');
-            subTotalElement.textContent = `Subtotal: $${subTotal.toFixed(2)}`;
+            // Integamos el subtotal en el HTML para que lo vea el cliente
+            const subTotalElement = producto.querySelector('.subTotal')
+            subTotalElement.textContent = `Subtotal: $${subTotal.toFixed(2)}` // Determinamos cantidad de decimales
 
-            total += subTotal;
-            totalElement.textContent = `Total: $${total.toFixed(2)}`;
-
-            console.log('Producto a agregar al array: ', { title, price, quantity, productId });
+            total += subTotal // El total es la suma de todos los subtotales
+            totalElement.textContent = `Total: $${total.toFixed(2)}` // Definimos dos decimales
             
-            // Añadimos el producto al array
+            // Agregamos toda la info al array products
             products.push({
                 title,
                 price,
@@ -61,17 +63,22 @@ fetch('http://localhost:8080/users/current', {
             });
         });
 
+        // Funcion para verificar si el carrito esta vacio o no
         emptyCart(products);
 
-        // Ahora que hemos obtenido el purchaserId correctamente, pasamos la función purchase
+        // Definimos el boton purchaseButton que usaremos como parametro para la funcion purchase (comprqar)
         const purchaseButton = document.querySelector('.purchase');
-        purchase(purchaseButton, purchaserId, total, products); // Llamamos a purchase después de tener el purchaserId
+
+        // Llamamos a la funcion con los parametros
+        purchase(purchaseButton, purchaserId, total, products)
 
     })
     .catch(err => {
-        console.error('Error al obtener el purchaserId:', err);
+        return
 });
 
-
+// Definimos boton para cancelar
 const cancel = document.querySelector('.cancel');
+
+// Llamamos a la funcion brindando los productos y el elemento (boton) que activara el evento
 cancellation(cancel, products)

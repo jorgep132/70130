@@ -1,7 +1,9 @@
 export function emptyCart(products) {
+    
     const purchaseButton = document.querySelector('.purchase');
     const cancelButton = document.querySelector('.cancel');
 
+    // Si no hay nada en el carrito nos redirecciona a los productos (avisando previamente)
     if (products.length === 0) {
         Swal.fire({
             title: 'Tu carrito está vacío',
@@ -12,10 +14,12 @@ export function emptyCart(products) {
         .then(()=>{
             window.location.href = 'http://localhost:8080/products'
         })
-
+        
+        // Oculta los botones si no tenemos nada en el carrito
+        // No tienen sentido los botones si no hay nada que comprar o cancelar compra
         if (purchaseButton) purchaseButton.style.display = 'none';
         if (cancelButton) cancelButton.style.display = 'none';
-    } else {
+        } else {
         if (purchaseButton) purchaseButton.style.display = 'inline-block';
         if (cancelButton) cancelButton.style.display = 'inline-block';
     }

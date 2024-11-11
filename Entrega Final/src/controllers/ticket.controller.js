@@ -1,25 +1,30 @@
 const { TicketDto } = require("../dto/ticket.dto");
 const { ticketService, userService } = require("../services");
-
+1
+// Crear ticket
 const createTicket = async (req, res) => {
+    // Tomamos como datos el usuario que realiza la compra, los productos y el costo total de estos.
     const {total, products, purchaserId} = req.body
-    console.log('Datos recibidos: ', {total, products, purchaserId})
+
     try {
+        // Utilizamos el email del usuario.
         const purchaser = await userService.getBy({email: purchaserId})
-        console.log('Usuario: ', purchaser._id)
-        console.log('Usuario: ', purchaser.email)
+
+        // Manejo de errores
         if (!purchaser) {
             return res.status(404).json({ error: 'Usuario no encontrado' });
         }
+        
         const ticket = await ticketService.create(total, products, purchaser._id)
         const ticketDto = new TicketDto(ticket)
 
+        // Convertimos el objeto en string usando el DTO para especificar la informacion que queremos que reciba el cliente en su ticket
+        // Esto luego se enviara por correo
         const ticketResponse = {
-            ticketId: ticket._id.toString(),  // Aquí convertimos ObjectId a String
-            ...ticketDto.toResponse()         // Enviar el resto de la información
+            ticketId: ticket._id.toString(), 
+            ...ticketDto.toResponse()         
         };
-        console.log('Ticket creado:', ticketResponse);
-        console.log('Ticket DTO: ', ticketDto)
+
         res.json(ticketResponse);
     } catch(err){
         console.error('Error al crear el ticket:', err);
@@ -27,12 +32,13 @@ const createTicket = async (req, res) => {
     }
 }
 
+// Ver un ticket en particular - ADMIN ya que es informacion sensible
 const getTicket = async (req, res) => {
     const ticketId  = req.params.ticketId;
-    try {
-        const ticket = await ticketService.getBy(ticketId); // Asegúrate de tener este método para obtener el ticket
 
-        // Renderiza la página de compra con los datos del ticket
+    try {
+        const ticket = await ticketService.getBy(ticketId);
+
         res.json(ticket)
     } catch (error) {
         console.error('Error al obtener el ticket:', error);
@@ -40,13 +46,14 @@ const getTicket = async (req, res) => {
     }
 };
 
+// Ver los tickets - ADMIN ya que es informacion sensible
 const getTickets = async (req, res) => {
     try {
         const fetchedCarts = await ticketService.get()
         res.send({message: 'success', payload: fetchedCarts})
     } catch (error) {
         console.log(error)
-}
+    }
 }
 
 

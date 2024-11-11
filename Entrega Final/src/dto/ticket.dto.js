@@ -16,11 +16,12 @@ class TicketDto {
                 price: product.price,
                 quantity: product.quantity,
                 subtotal: (product.price * product.quantity).toFixed(2),
-                image_url: product.thumbnails  // Subtotal de cada producto
+                image_url: product.thumbnails
             };
         });
         return {
-            'fecha de compra': this.purchase_date_time.toISOString(),  // Formato ISO para la fecha
+            // Elegimos lo que queremos mostrar en el carrito
+            'fecha de compra': this.purchase_date_time.toISOString(), // Convertimos el valor DATE
             'total': this.amount,
             'usuario': this.purchaser,
             'codigo': this.code,

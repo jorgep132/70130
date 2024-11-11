@@ -40,9 +40,10 @@ async function socketProduct(io, socket) {
             socket.emit('products_delete_error', err.message);
         }
     });
+    // Actualizar productos
     socket.on('actualizar_producto', async (productId, updatedData) => {
         try {
-            await productService.update(productId, updatedData); // Asumiendo que tienes una función para actualizar
+            await productService.update(productId, updatedData);
             await realTimeProducts();
             io.emit('product_updated_ok')
         } catch (err) {

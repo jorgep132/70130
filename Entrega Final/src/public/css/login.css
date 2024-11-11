@@ -1,6 +1,5 @@
-/* General Styles */
 html, body {
-    height: 100%; /* Asegura que el body ocupe toda la altura */
+    height: 100%;
     margin: 0;
     padding: 0;
 }
@@ -11,16 +10,14 @@ body {
     color: #333;
 }
 
-/* Estilos para el contenedor principal */
 main {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Ocupa toda la altura de la ventana */
+    height: 100vh;
     background-color: #f4f4f9;
 }
 
-/* Estilo del contenedor de login */
 .d-flex {
     display: flex;
     flex-direction: column;
@@ -34,7 +31,6 @@ main {
     box-sizing: border-box;
 }
 
-/* Título del login */
 h1 {
     font-size: 28px;
     font-weight: bold;
@@ -42,12 +38,10 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* Estilo para el formulario */
 form {
     width: 100%;
 }
 
-/* Estilo para los inputs del formulario */
 form input[type="text"],
 form input[type="password"] {
     width: 100%;
@@ -62,11 +56,10 @@ form input[type="password"] {
 
 form input[type="text"]:focus,
 form input[type="password"]:focus {
-    border-color: #4CAF50; /* Color cuando está en foco */
+    border-color: #4CAF50;
     outline: none;
 }
 
-/* Estilo para el botón de enviar */
 form button {
     width: 100%;
     padding: 14px;
@@ -83,7 +76,6 @@ form button:hover {
     background-color: #45a049;
 }
 
-/* Estilo para los enlaces debajo del formulario */
 form a {
     font-size: 14px;
     color: #4CAF50;
@@ -96,7 +88,6 @@ form a:hover {
     text-decoration: underline;
 }
 
-/* Estilo de los enlaces de "Register" y "Olvidaste tu contraseña" */
 form a[href="/users/register"] {
     margin-top: 20px;
     text-align: center;
@@ -108,7 +99,6 @@ form a[href="/users/change-pass"] {
     margin-top: 10px;
 }
 
-/* Estilo de responsive para el login */
 @media (max-width: 500px) {
     .d-flex {
         padding: 30px;
