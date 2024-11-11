@@ -1,0 +1,140 @@
+[{
+  "_id": {
+    "$oid": "66d751e98e8ea877560278f3"
+  },
+  "title": "Huevo Kinder",
+  "description": "Huevo Kinder Sorpresa, chocolate con leche.",
+  "code": "HKS",
+  "price": 2000,
+  "status": true,
+  "stock": 24,
+  "category": "Chocolates",
+  "thumbnails": "/images/1725387241963-50081000_huevo_kinder_con_leche_sorpresa_x20_gramos.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66d7520e8e8ea877560278f6"
+  },
+  "title": "Chocolate Nevado Biznikke",
+  "description": "Chocolate negro, mezclado con chocolate blanco.",
+  "code": "CNB",
+  "price": 800,
+  "status": true,
+  "stock": 12,
+  "category": "Chocolates",
+  "thumbnails": "/images/1725387278897-Chocolate-Biznikke-Nevado-28-Gr-_1.png",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66d7522e8e8ea877560278f9"
+  },
+  "title": "Palitos de la selva",
+  "description": "Bolsa de palitos de la selva",
+  "code": "PDLS",
+  "price": 1500,
+  "status": true,
+  "stock": 6,
+  "category": "Caramelos",
+  "thumbnails": "/images/1725387310576-3D-Flexible-Palito-de-la-Selva-x-150gr-2023-Sellos-copy.png",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66d752568e8ea877560278fc"
+  },
+  "title": "Alfajor Aguila",
+  "description": "Minitorta Aguila de coco",
+  "code": "AGC",
+  "price": 1300,
+  "status": false,
+  "stock": 0,
+  "category": "Alfajores",
+  "thumbnails": "/images/1725387350501-20230824-13360.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66d752848e8ea877560278ff"
+  },
+  "title": "Flyn Paff",
+  "description": "Caja de caramelos Flyn Paff sabor tutti-frutti",
+  "code": "FPTF",
+  "price": 2400,
+  "status": true,
+  "stock": 2,
+  "category": "Caramelos",
+  "thumbnails": "/images/1725387396482-D_NQ_NP_932023-MLU74415937830_022024-O.png",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66d752ac8e8ea87756027902"
+  },
+  "title": "Cadbury de frutilla",
+  "description": "Chocolate Cadbury con yoghurt de frutilla.",
+  "code": "CCF",
+  "price": 2300,
+  "status": true,
+  "stock": 8,
+  "category": "Chocolates",
+  "thumbnails": "/images/1725387436689-frutilla__57668.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66d752d48e8ea87756027905"
+  },
+  "title": "Alfajor Guaymallén blanco",
+  "description": "Alfajor Guaymallén dulce de leche con chocolate blanco",
+  "code": "AGL",
+  "price": 450,
+  "status": true,
+  "stock": 30,
+  "category": "Alfajores",
+  "thumbnails": "/images/1725387476913-guaymallen_blanco__87288.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66d752fa8e8ea87756027908"
+  },
+  "title": "Alfajor Jorgelín triple",
+  "description": "Alfajor triple de chocolate y dulce de leche",
+  "code": "AJTC",
+  "price": 1200,
+  "status": true,
+  "stock": 5,
+  "category": "Alfajores",
+  "thumbnails": "/images/1725387514392-images.jpeg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66d753258e8ea8775602790b"
+  },
+  "title": "Alfajor triple milka",
+  "description": "Alfajor triple de dulche de leche con mousse blanco",
+  "code": "ATM",
+  "price": 1300,
+  "status": false,
+  "stock": 0,
+  "category": "Alfajores",
+  "thumbnails": "/images/1725387557575-milkamoussseblanco-6dd737662c2047064a17148467594518-1024-1024.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66d7534c8e8ea8775602790e"
+  },
+  "title": "Mogul Moras",
+  "description": "Gomitas sabor a moras.",
+  "code": "GMM",
+  "price": 1000,
+  "status": true,
+  "stock": 15,
+  "category": "Gomitas",
+  "thumbnails": "/images/1725387596800-Mogul_Moras_Gomitas_Sabor_Surtido,_500_g.jpeg",
+  "__v": 0
+}]
